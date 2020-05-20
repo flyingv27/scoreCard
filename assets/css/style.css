@@ -3,7 +3,6 @@
 #header {
     height: 100px;
     width: 414px;
-    height: 127px;
     border: solid 1px #707070;
     background-color: #90f4ab;
     display: flex;
@@ -25,15 +24,14 @@
     
 }
 .main {
-    margin-top: 39px;
-    margin-left: 39px;
     display: flex;
     flex-direction: column;
 }
 .players {
     display: flex;
     flex-direction: row;
-    padding-top: 20px;
+    padding-top: 38px;
+    padding-left: 38px;
 }
 .p1-score {
     width: 117px;
