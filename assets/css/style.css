@@ -1,7 +1,7 @@
 
 /* header */
 #header {
-    height: 100px;
+    height: 80px;
     width: 375px;
     border: solid 1px #707070;
     background-color: #90f4ab;
@@ -13,7 +13,7 @@
 #header .head_title {
     font-family: "SF Display";
     height: 41px;
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -34,8 +34,8 @@
 .players {
     display: flex;
     flex-direction: row;
-    padding-top: 38px;
-    padding-left: 38px;
+    padding-top: 26px;
+    padding-left: 26px;
 }
 .p1-score {
     width: 117px;
