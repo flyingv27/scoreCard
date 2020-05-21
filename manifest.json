@@ -15,6 +15,6 @@
         }],
     "scope": "/racer/",
     "start_url": "/racer/start.html",
-    "display": "fullscreen",
+    "display": "standalone",
     "orientation": "landscape"
   }
