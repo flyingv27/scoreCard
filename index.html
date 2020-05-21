@@ -23,7 +23,7 @@
     
 </head>
 
-<body onload="setTimeout(function() {window.scrollTo(0, 1)}, 100)">
+<body>
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -49,6 +49,9 @@
         $("#hole2").load("./hole2.html");
         // $("#hole3").load("./hole3.html");
         // $("#hole4").load("./hole4.html");
+
+    window.addEventListener('load', function(){setTimeout(scrollTo, 0, 0, 1);}, false);
+
     </script>
 </body>
 
