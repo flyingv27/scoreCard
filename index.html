@@ -64,9 +64,8 @@
         function shotAdd(i, type) {
             
             //var obj = document.getElementById("p"+i+"-num-on");
-            var hole = $("#hole"+i);
-            var obj = hole.$("div[name=p1-num-on]");
-
+            var obj = $("#hole"+i).find("div[name=p"+i+"-num-on]");
+            
             console.log(obj);
             playersOn[i] += 1;
             obj.innerHTML = playersOn[i];
