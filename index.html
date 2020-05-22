@@ -116,7 +116,7 @@
             */
         }
 
-        function puttAdd(i) {
+        function puttAdd(i,j) {
             //var obj = document.getElementById("p"+i+"-num-putt");
             var obj = $("#hole"+i+" [name=p"+i+"-num-putt]");
             console.log(obj);
@@ -129,7 +129,7 @@
             */
         }
 
-        function puttMinus(i) {
+        function puttMinus(i,j) {
             //var obj = document.getElementById("p"+i+"-num-putt");
             var obj = $("#hole"+i+" [name=p"+i+"-num-putt]");
             playersPutt[i-1][j-1] -= 1;
