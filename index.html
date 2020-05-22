@@ -98,7 +98,7 @@
             //var obj = document.getElementById("p"+i+"-num-on");
             var obj = $("#hole"+i+" [name=p"+j+"-num-on]");
             playersOn[i-1][j-1] -= 1;
-            obj.innerHTML = playersOn[i-1][j-1];
+            obj[0].innerHTML = playersOn[i-1][j-1];
             /*
             if(type == 'stroke') {
                 var p_num_stroke = document.getElementById("p"+i+"-strk-plus");
@@ -121,7 +121,7 @@
             var obj = $("#hole"+i+" [name=p"+i+"-num-putt]");
             console.log(obj);
             playersPutt[i-1][j-1] += 1;
-            obj.innerHTML = playersPutt[i-1][j-1];
+            obj[0].innerHTML = playersPutt[i-1][j-1];
             /*
             var p_num_putt = document.getElementById("Player"+i+"_num_putt");
             playerNumPutt[i] += 1;
@@ -133,7 +133,7 @@
             //var obj = document.getElementById("p"+i+"-num-putt");
             var obj = $("#hole"+i+" [name=p"+i+"-num-putt]");
             playersPutt[i-1][j-1] -= 1;
-            obj.innerHTML = playersPutt[i-1][j-1];
+            obj[0].innerHTML = playersPutt[i-1][j-1];
             /*
             var p_num_putt = document.getElementById("Player"+i+"_num_putt");
             playerNumPutt[i] -= 1;
