@@ -86,10 +86,10 @@
         }
 
         function shotMinus(i, type) {
-            var obj = document.getElementById("Player"+i+"_on");
+            var obj = document.getElementById("p"+i+"-num-on");
             playersOn[i] -= 1;
             obj.innerHTML = playersOn[i];
-            
+            /*
             if(type == 'stroke') {
                 var p_num_stroke = document.getElementById("Player"+i+"_num_stroke");
                 playerNumStroke[i] -= 1;
@@ -103,28 +103,29 @@
                 playerNumHazard[i] -= 1;
                 p_num_hazard.innerHTML = "(" +playerNumHazard[i]+ ")"; 
             }
-            
-        }
+            */
 
         function puttAdd(i) {
-            var obj = document.getElementById("Player"+i+"_putt");
+            var obj = document.getElementById("p"+i+"-num-putt");
             console.log("added.");
             playersPutt[i] += 1;
             obj.innerHTML = playersPutt[i];
-            
+            /*
             var p_num_putt = document.getElementById("Player"+i+"_num_putt");
             playerNumPutt[i] += 1;
             p_num_putt.innerHTML = "(" +playerNumPutt[i]+ ")"; 
+            */
         }
 
         function puttMinus(i) {
-            var obj = document.getElementById("Player"+i+"_putt");
+            var obj = document.getElementById("p"+i+"-num-putt");
             playersPutt[i] -= 1;
             obj.innerHTML = playersPutt[i];
-            
+            /*
             var p_num_putt = document.getElementById("Player"+i+"_num_putt");
             playerNumPutt[i] -= 1;
             p_num_putt.innerHTML = "(" +playerNumPutt[i]+ ")";
+            */
         }
 
     </script>
