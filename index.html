@@ -63,14 +63,18 @@
 
         function shotAdd(i, type) {
             
-            var obj = document.getElementById("p"+i+"-num-on");
-            
+            //var obj = document.getElementById("p"+i+"-num-on");
+            var hole = $("#hole"+i);
+            var obj = hole.$("div[name=p1-num-on]");
+
             console.log(obj);
             playersOn[i] += 1;
             obj.innerHTML = playersOn[i];
             /*
             if(type == 'stroke') {
-                var p_num_stroke = document.getElementById("Player"+i+"_num_stroke");
+                var hole = $("#hole"+i);
+                hole
+                var p_num_stroke = document.getElementById(p"+i+"-strk-plus");
                 playerNumStroke[i] += 1;
                 p_num_stroke.innerHTML = "(" +playerNumStroke[i]+ ")"; 
             } else if(type == 'ob') {
@@ -91,7 +95,7 @@
             obj.innerHTML = playersOn[i];
             /*
             if(type == 'stroke') {
-                var p_num_stroke = document.getElementById("Player"+i+"_num_stroke");
+                var p_num_stroke = document.getElementById("p"+i+"-strk-plus");
                 playerNumStroke[i] -= 1;
                 p_num_stroke.innerHTML = "(" +playerNumStroke[i]+ ")"; 
             } else if(type == 'ob') {
