@@ -41,6 +41,7 @@
     width: 117px;
     height: 104px;
     border: solid 1px #707070;
+    border-radius: 5%;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -98,6 +99,34 @@
 .btn-circle:active {
     background-color: hsla(180deg, 100%, 50%, 0.1);
     transition: background 0s;
+}
+
+.badge {
+    padding: 2px 5px;
+    font-size: 8px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #ffffff;
+    background-color: #999999;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.badge-strk {
+    background-color: #468847;
+}
+.badge-putt {
+    background-color: #f89406;
+}
+.badge-ob {
+    background-color: #b94a48;
+}
+.badge-hzd {
+    background-color: #3a87ad;
+}
+.badge-pnty {
+    background-color: #333333;
 }
 /* mediaquery */
 @media (max-width: 1040px){

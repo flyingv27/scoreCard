@@ -63,14 +63,13 @@
 
 
         playersOn = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
-
         playersPutt = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
         
-        playerNumStroke = new Array(0,0,0,0);
-        playerNumPutt = new Array(0,0,0,0);
-        playerNumOB = new Array(0,0,0,0);
-        playerNumHazard = new Array(0,0,0,0);
-        playerNumPenalty = new Array(0,0,0,0);
+        playerNumStroke = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+        playerNumPutt = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+        playerNumOB = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+        playerNumHazard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+        playerNumPenalty = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 
         function shotAdd(i, j, type) {
             
@@ -85,23 +84,25 @@
             //console.log(obj);
             playersOn[i-1][j-1] += 1;
             obj[0].innerHTML = playersOn[i-1][j-1];
-            /*
+            
             if(type == 'stroke') {
-                var hole = $("#hole"+i);
-                hole
-                var p_num_stroke = document.getElementById(p"+i+"-strk-plus");
-                playerNumStroke[i] += 1;
-                p_num_stroke.innerHTML = "(" +playerNumStroke[i]+ ")"; 
+                var p_num_stroke = $("#hole"+i+" [name=p"+j+"-strk-badge]");
+                playerNumStroke[i-1][j-1] += 1;
+                p_num_stroke[0].innerHTML = playerNumStroke[i-1][j-1]; 
             } else if(type == 'ob') {
-                var p_num_ob = document.getElementById("Player"+i+"_num_ob");
-                playerNumOB[i] += 1;
-                p_num_ob.innerHTML = "(" +playerNumOB[i]+ ")"; 
-            } else if(type == 'hazard') {
-                var p_num_hazard = document.getElementById("Player"+i+"_num_hazard");
-                playerNumHazard[i] += 1;
-                p_num_hazard.innerHTML = "(" +playerNumHazard[i]+ ")"; 
+                var p_num_ob = $("#hole"+i+" [name=p"+j+"-ob-badge]");
+                playerNumOB[i-1][j-1] += 1;
+                p_num_ob[0].innerHTML = playerNumOB[i-1][j-1];
+            } else if(type == 'hzd') {
+                var p_num_hazard = $("#hole"+i+" [name=p"+j+"-hzd-badge]");
+                playerNumHazard[i-1][j-1] += 1;
+                p_num_hazard[0].innerHTML = playerNumHazard[i-1][j-1]; 
+            } else if(type == 'pnty') {
+                var p_num_pnty = $("#hole"+i+" [name=p"+j+"-pnty-badge]");
+                playerNumPenalty[i-1][j-1] += 1;
+                p_num_pnty[0].innerHTML = playerNumPenalty[i-1][j-1]; 
             }
-            */
+            
         }
 
         function shotMinus(i, j, type) {
@@ -109,21 +110,25 @@
             var obj = $("#hole"+i+" [name=p"+j+"-num-on]");
             playersOn[i-1][j-1] -= 1;
             obj[0].innerHTML = playersOn[i-1][j-1];
-            /*
+            
             if(type == 'stroke') {
-                var p_num_stroke = document.getElementById("p"+i+"-strk-plus");
-                playerNumStroke[i] -= 1;
-                p_num_stroke.innerHTML = "(" +playerNumStroke[i]+ ")"; 
+                var p_num_stroke = $("#hole"+i+" [name=p"+j+"-strk-badge]");
+                playerNumStroke[i-1][j-1] -= 1;
+                p_num_stroke[0].innerHTML = playerNumStroke[i-1][j-1]; 
             } else if(type == 'ob') {
-                var p_num_ob = document.getElementById("Player"+i+"_num_ob");
-                playerNumOB[i] -= 1;
-                p_num_ob.innerHTML = "(" +playerNumOB[i]+ ")"; 
-            } else if(type == 'hazard') {
-                var p_num_hazard = document.getElementById("Player"+i+"_num_hazard");
-                playerNumHazard[i] -= 1;
-                p_num_hazard.innerHTML = "(" +playerNumHazard[i]+ ")"; 
+                var p_num_ob = $("#hole"+i+" [name=p"+j+"-ob-badge]");
+                playerNumOB[i-1][j-1] -= 1;
+                p_num_ob[0].innerHTML = playerNumOB[i-1][j-1];
+            } else if(type == 'hzd') {
+                var p_num_hazard = $("#hole"+i+" [name=p"+j+"-hzd-badge]");
+                playerNumHazard[i-1][j-1] -= 1;
+                p_num_hazard[0].innerHTML = playerNumHazard[i-1][j-1]; 
+            } else if(type == 'pnty') {
+                var p_num_pnty = $("#hole"+i+" [name=p"+j+"-pnty-badge]");
+                playerNumPenalty[i-1][j-1] -= 1;
+                p_num_pnty[0].innerHTML = playerNumPenalty[i-1][j-1]; 
             }
-            */
+            
         }
 
         function puttAdd(i,j) {
@@ -132,11 +137,11 @@
             console.log(obj);
             playersPutt[i-1][j-1] += 1;
             obj[0].innerHTML = playersPutt[i-1][j-1];
-            /*
-            var p_num_putt = document.getElementById("Player"+i+"_num_putt");
-            playerNumPutt[i] += 1;
-            p_num_putt.innerHTML = "(" +playerNumPutt[i]+ ")"; 
-            */
+            
+            var p_num_putt = $("#hole"+i+" [name=p"+j+"-putt-badge]");
+            playerNumPutt[i-1][j-1] += 1;
+            p_num_putt[0].innerHTML = playerNumPutt[i-1][j-1];
+            
         }
 
         function puttMinus(i,j) {
@@ -144,11 +149,10 @@
             var obj = $("#hole"+i+" [name=p"+j+"-num-putt]");
             playersPutt[i-1][j-1] -= 1;
             obj[0].innerHTML = playersPutt[i-1][j-1];
-            /*
-            var p_num_putt = document.getElementById("Player"+i+"_num_putt");
-            playerNumPutt[i] -= 1;
-            p_num_putt.innerHTML = "(" +playerNumPutt[i]+ ")";
-            */
+            
+            var p_num_putt = $("#hole"+i+" [name=p"+j+"-putt-badge]");
+            playerNumPutt[i-1][j-1] -= 1;
+            p_num_putt[0].innerHTML = playerNumPutt[i-1][j-1];
         }
 
     </script>
