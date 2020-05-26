@@ -1,0 +1,24 @@
+{
+  "name": "scorecard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node your-script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyingv27/scoreCard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flyingv27/scoreCard/issues"
+  },
+  "homepage": "https://github.com/flyingv27/scoreCard#readme"
+}
