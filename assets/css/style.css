@@ -97,7 +97,7 @@
 }
 
 .btn-circle:active {
-    background-color: hsla(180deg, 100%, 50%, 0.9);
+    background-color: hsla(200deg, 100%, 50%, 0.9);
     transition: background 0s;
 }
 
