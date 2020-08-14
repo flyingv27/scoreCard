@@ -41,7 +41,6 @@
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- Optional JavaScript -->
@@ -71,17 +70,17 @@
         playerNumHazard = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
         playerNumPenalty = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 
+        let saveYN = "N";
+        console.log("1213123123");
+        // console.log($_POST['p1-name']);
+        // console.log($_POST['p2-name']);
+        // console.log($_POST['p3-name']);
+        // console.log($_POST['p4-name']);
+
+
         function shotAdd(i, j, type) {
             
-            //var obj = document.getElementById("p"+i+"-num-on");
-
             var obj = $("#hole"+i+" [name=p"+j+"-num-on]");
-            //var obj = $('#hole1 [name="p1-num-on"]');
-            console.log(obj[0]);
-            //obj = $('#hole1 [name="p1-num-on"]').get();
-            //console.log(obj[0]);
-            //obj = $('#hole1 [name="p1-num-on"]').get(0);
-            //console.log(obj);
             playersOn[i-1][j-1] += 1;
             obj[0].innerHTML = playersOn[i-1][j-1];
             
@@ -106,7 +105,6 @@
         }
 
         function shotMinus(i, j, type) {
-            //var obj = document.getElementById("p"+i+"-num-on");
             var obj = $("#hole"+i+" [name=p"+j+"-num-on]");
             playersOn[i-1][j-1] -= 1;
             obj[0].innerHTML = playersOn[i-1][j-1];
@@ -132,9 +130,7 @@
         }
 
         function puttAdd(i,j) {
-            //var obj = document.getElementById("p"+i+"-num-putt");
             var obj = $("#hole"+i+" [name=p"+j+"-num-putt]");
-            console.log(obj);
             playersPutt[i-1][j-1] += 1;
             obj[0].innerHTML = playersPutt[i-1][j-1];
             
@@ -145,7 +141,6 @@
         }
 
         function puttMinus(i,j) {
-            //var obj = document.getElementById("p"+i+"-num-putt");
             var obj = $("#hole"+i+" [name=p"+j+"-num-putt]");
             playersPutt[i-1][j-1] -= 1;
             obj[0].innerHTML = playersPutt[i-1][j-1];
@@ -155,6 +150,79 @@
             p_num_putt[0].innerHTML = playerNumPutt[i-1][j-1];
         }
 
+        function save() {
+            localStorage.setItem("playersOn",JSON.stringify(playersOn));
+            localStorage.setItem("playersPutt",JSON.stringify(playersPutt));
+            localStorage.setItem("playerNumStroke",JSON.stringify(playerNumStroke));
+            localStorage.setItem("playerNumPutt",JSON.stringify(playerNumPutt));
+            localStorage.setItem("playerNumOB",JSON.stringify(playerNumOB));
+            localStorage.setItem("playerNumHazard",JSON.stringify(playerNumHazard));
+            localStorage.setItem("playerNumPenalty",JSON.stringify(playerNumPenalty));
+            console.log(localStorage.getItem("playersOn"));
+            console.log(localStorage.getItem("playerNumPutt"));
+            saveYN = "Y";
+            localStorage.setItem("saveYN", saveYN);
+            
+
+
+        }
+
+        //$(document).ready(function(){
+        $(window).load(function(){
+            var obj;
+            console.log(localStorage.getItem("saveYN"));
+            if(localStorage.getItem("saveYN") == "Y") {
+                arrPlayersOn = JSON.parse(localStorage.getItem("playersOn"));
+                arrPlayersPutt = JSON.parse(localStorage.getItem("playersPutt"));
+                arrPlayerNumStroke = JSON.parse(localStorage.getItem("playerNumStroke"));
+                arrPlayerNumPutt = JSON.parse(localStorage.getItem("playerNumPutt"));
+                arrPlayerNumOB = JSON.parse(localStorage.getItem("playerNumOB"));
+                arrPlayerNumHazard = JSON.parse(localStorage.getItem("playerNumHazard"));
+                arrPlayerNumPenalty = JSON.parse(localStorage.getItem("playerNumPenalty"));
+
+                playersOn = arrPlayersOn;
+                playersPutt = arrPlayersPutt;
+                playerNumStroke = arrPlayerNumStroke;
+                playerNumPutt = arrPlayerNumPutt;
+                playerNumOB = arrPlayerNumOB;
+                playerNumHazard = arrPlayerNumHazard;
+                playerNumPenalty = arrPlayerNumPenalty;
+
+                // for(i=1; i <= arrPlayersOn.length; i++) {
+                for(i=1; i <= 9; i++) {
+                    for(j=1; j <= 4; j++){
+                        obj = $("#hole"+i+" [name=p"+j+"-num-on]");
+                        console.log(j);
+                        console.log(obj[0]);
+                        obj[0].innerHTML = arrPlayersOn[i-1][j-1];
+
+                        obj = $("#hole"+i+" [name=p"+j+"-num-putt]");
+                        obj[0].innerHTML = arrPlayersPutt[i-1][j-1];
+                        obj = $("#hole"+i+" [name=p"+j+"-strk-badge]");
+                        obj[0].innerHTML = arrPlayerNumStroke[i-1][j-1];
+                        obj = $("#hole"+i+" [name=p"+j+"-putt-badge]");
+                        obj[0].innerHTML = arrPlayerNumPutt[i-1][j-1];
+                        obj = $("#hole"+i+" [name=p"+j+"-ob-badge]");
+                        obj[0].innerHTML = arrPlayerNumOB[i-1][j-1];
+                        obj = $("#hole"+i+" [name=p"+j+"-hzd-badge]");
+                        obj[0].innerHTML = arrPlayerNumHazard[i-1][j-1];
+                        obj = $("#hole"+i+" [name=p"+j+"-pnty-badge]");
+                        obj[0].innerHTML = arrPlayerNumPenalty[i-1][j-1];
+                    }
+                }
+
+            } else {
+                console.log("not saved...");
+            }
+            
+            // console.log(arrPlayersOn.length);
+            // console.log(arrPlayersOn[0][0]);
+            // console.log(arrPlayersOn[0][1]);
+            // console.log(arrPlayersOn[0][2]);
+            // console.log(arrPlayersOn[0][3]);
+            //for(i; i<arrPlayersOn.length)
+            
+        });
     </script>
 </body>
 
